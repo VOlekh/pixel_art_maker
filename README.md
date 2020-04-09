@@ -37,27 +37,34 @@ The script.js JavaScript code works with the provided HTML and CSS files. The sc
  Work with file designs.js.
 
 
-Description: make clear up grid function, withot this new grid will be added below the old one.
+**Description:** 
+- make clear up grid function, withot this new grid will be added below the old one.
 Tipps: the same can be made by Element.innerHTML (or jQuery's .html())
 
 
-Code:
+```
 function clearGrid(){
     //To remove all children from an element:
     while (table.firstChild) {
       table.removeChild(table.firstChild);
     };
     };
+```
 _________________________________________________    
 
-Description: makeGrid() functions set the size of the grid as an _N_ by _M_ grid with the user input
-Use of getElementById to retrieve the inputs.
-inside makeGrid() used 2 more functions clearGrid() and colorCell()
+**Description:** 
+- makeGrid() functions set the size of the grid as an _N_ by _M
+grid with the user input
+- use of getElementById to retrieve the inputs
+- inside makeGrid() used 2 more functions clearGrid() and colorCell()
    - clearGrid() described above
    - colorCell() got the color value from user and applied it the cell ("td")
-Tipps: could use document.querySelector('#someElementId') to achieve the same effect
 
-Code:
+**Tipp:** 
+- could use document.querySelector('#someElementId') to achieve the same effect
+
+
+```
 function makeGrid(event){
     const width = document.getElementById('inputWidth').value;
     const height = document.getElementById('inputHeight').value;
@@ -75,21 +82,27 @@ function makeGrid(event){
         }
         event.preventDefault();
     };
+ ```
  ___________________________________________________
     
     
-Description: using a submit event listener and preventing the page from reloading.  
+**Description:** 
+- use a submit event listener and preventing the page from reloading.  
 
-Code:
+```
 submitForm.addEventListener('submit', makeGrid);
+```
 _____________________________________________________
 
-Description: colorCell() got the color value from user and applied it the cell ("td")
+**Description:**  
+- colorCell() got the color value from user and applied it the cell ("td")
 
 
-Code:
+```
 function colorCell (event) {
     let color = document.getElementById('colorPicker').value;
     event.target.style.backgroundColor = color;
     event.preventDefault();
   };
+
+```
