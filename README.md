@@ -5,6 +5,7 @@
 * [Project Description](#project_description)
 * [Project Specification](#project_specification)
 * [Contributing](#contributing)
+* [Code Description](#code_description)
 
 ## Project Description
 
@@ -31,3 +32,64 @@ Users should be able to:
 ## Contributing
 
 The script.js JavaScript code works with the provided HTML and CSS files. The script.js file is properly linked to the HTML file, and loading the HTML file shows the correct functionality for the application.
+
+## Code Description
+ Work with file designs.js.
+
+
+Description: make clear up grid function, withot this new grid will be added below the old one.
+Tipps: the same can be made by Element.innerHTML (or jQuery's .html())
+
+
+Code:
+function clearGrid(){
+    //To remove all children from an element:
+    while (table.firstChild) {
+      table.removeChild(table.firstChild);
+    };
+    };
+_________________________________________________    
+
+Description: makeGrid() functions set the size of the grid as an _N_ by _M_ grid with the user input
+Use of getElementById to retrieve the inputs.
+inside makeGrid() used 2 more functions clearGrid() and colorCell()
+   - clearGrid() described above
+   - colorCell() got the color value from user and applied it the cell ("td")
+Tipps: could use document.querySelector('#someElementId') to achieve the same effect
+
+Code:
+function makeGrid(event){
+    const width = document.getElementById('inputWidth').value;
+    const height = document.getElementById('inputHeight').value;
+    //clear grid call function
+    clearGrid();
+    for (let row = 0; row < height; row++) {
+        let newRow = document.createElement("tr");  
+        table.appendChild(newRow);
+            for (let cell = 0; cell < width; cell++){
+                let newCell = document.createElement("td");
+                //Each cell should have an event listener that sets the background color of the cell to the selected color.
+                newCell.addEventListener('click', colorCell)
+                newRow.appendChild(newCell); 
+            }
+        }
+        event.preventDefault();
+    };
+ ___________________________________________________
+    
+    
+Description: using a submit event listener and preventing the page from reloading.  
+
+Code:
+submitForm.addEventListener('submit', makeGrid);
+_____________________________________________________
+
+Description: colorCell() got the color value from user and applied it the cell ("td")
+
+
+Code:
+function colorCell (event) {
+    let color = document.getElementById('colorPicker').value;
+    event.target.style.backgroundColor = color;
+    event.preventDefault();
+  };
